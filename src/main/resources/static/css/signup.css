@@ -1,0 +1,22 @@
+@charset "ISO-8859-1";
+
+.custom-form{
+	width: 60%;
+	margin: auto;
+}
+
+
+.btn1{
+	padding: .5rem 1rem;
+	width: 20%;
+	background-color:  rgba(101, 44, 175, 0.911);
+	color: white;
+	border-radius: 5px;
+	border: 1px solid  rgba(101, 44, 175, 0.911);
+	font-size: 1.2rem;
+	display:block;
+}
+
+#page-title{
+	color: rgba(101, 44, 175, 0.911);
+}
