@@ -51,50 +51,29 @@
 				            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 				        </form>
 				
-				        <h2>Write a Check | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
+				        <h2>Checks | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
 			        </c:if>
 			                
-						              
- 			        <form:form action="saveCheque" modelAttribute="cheque"> 
- 			            <table border="0" cellpadding="5">
- 			             	<tr> 
-		                        <td>Add Payee: </td>
-			                    <td> 
-				                    <form:select  path="payee">
-				                       <c:forEach items="${payeeList}" var="payee" >
-				                        	<form:option  value="${payee}">${payee.id} ${payee.payeeName}</form:option>
-				                        </c:forEach>
-				                    </form:select> 
-			                    </td> 
-			                </tr> 
-			              	<tr> 
-		                        <td>Bank Account: </td>
-			                    <td> 
-				                    <form:select  path="account">
-				                       <c:forEach items="${accountList}" var="account" >
-				                        	<form:option  value="${account}">${account.accountNumber} ${account.name}</form:option>
-				                        </c:forEach>
-				                    </form:select> 
-			                    </td> 
-			                </tr> 
- 			               
- 			                 <tr>
- 			                    <td>Memo: </td> 
- 			                    <td><form:input path="memo" /></td>
- 			                </tr>
- 			                 <tr>
- 			                    <td>Amount: </td> 
- 			                    <td><form:input  path="amount" /></td>
- 			                </tr>
-			                 <tr>
- 			                    <td>Id</td> 
- 			                    <td><form:input  path="chequeNumber" /></td>
- 			                </tr>    
- 			                
- 			            </table> 
- 			            <input type="submit" value="Save"  class="text-white rounded bg-secondary pl-4 pr-4">
- 			        </form:form>
-  					<div class="mt-4"><a class="text-white rounded bg-secondary pt-2 pb-2 pl-4 pr-4" href="cheques">View Checks History</a></div>
+			        <div align="center">
+					    <table border="2" cellpadding="5" class="mt-4">
+					        <tr>
+					        	<th class="pl-3 pr-3">Check Number</th>
+					        	<th class="pl-3 pr-3">Date Created</th>
+					            <th class="pl-3 pr-3">Action</th>
+					        </tr>
+					        <c:forEach items="${listCheque}" var="cheque">
+					        <tr>
+					        	 <td class="pl-3 pr-3">${cheque.chequeNumber}</td>
+					        	 <td class="pl-3 pr-3">${cheque.date}</td>
+					           	 <td class="pl-3 pr-3">
+					                <a href="viewcheck?id=${cheque.chequeNumber}">View Check</a>
+					            </td>
+					        </tr>
+					        </c:forEach>
+  						</table>
+					</div>   
+			       
+  
 		        </div>
 
 		  </div>

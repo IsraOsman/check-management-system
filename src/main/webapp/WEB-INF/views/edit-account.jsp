@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Welcome</title>
+    <title>Adding new Account</title>
     <link href="css/home.css" rel="stylesheet">
     <link href="css/sidebar.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -50,19 +50,40 @@
 				            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 				        </form>
 				
-				        <h2>Add payee | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
+				        <h2>Add new account | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
 			        </c:if>
 			        
 			        <div align="center" class="mt-5 w-75">
-				        <form:form class="w-100" action="savePayee" method="post" modelAttribute="payee">
+				        <form:form class="w-100" action="save" method="post" modelAttribute="account">
 				            <table border="0" cellpadding="5" class="w-100">
 				                <tr>
-				                    <td>Payee Name: </td>
-				                    <td><form:input path="payeeName" class="w-100" /></td>
+				                    <td class="d-inline">Account Name: </td>
+				                    <td><form:input path="name" class="w-75" /></td>
 				                </tr>
-				                         
+				                <tr class="w-100">
+				                    <td class="d-inline">Address: </td>
+				                    <td><form:input path="address" class="w-75"/></td>
+				                </tr>
+				                <tr class="w-100">
+				                    <td class="d-inline">Bank: </td>
+				                    <td><form:input path="bank" class="w-75"/></td>
+				                </tr>
+				                <tr class="w-100">
+				                    <td class="d-inline">Account Number: </td>
+				                    <td><form:input path="accountNumber"  class="w-75"/></td>
+				                </tr>
+				                <tr class="w-100">
+				                    <td class="d-inline">Routing Number: </td>
+				                    <td><form:input path="routingNumber" class="w-75"/></td>
+				                </tr>  
+				          
+				              	<tr>
+				                    <td><form:input  type="hidden" path="user.id"/></td>
+				                </tr>
+				                                    
 				            </table>
-				            <input type="submit" value="Save"  class="text-white rounded bg-secondary pl-4 pr-4 mt-4">
+				            
+				            <input type="submit" value="Save"  class="text-white rounded bg-secondary pl-4 pr-4 ">
 				        </form:form>
 				        
 				    </div>

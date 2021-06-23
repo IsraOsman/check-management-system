@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +36,13 @@ public class ChequeController {
 	
 	@Autowired UserService userService;
 	
+	@RequestMapping("/cheques")
+    public ModelAndView chequeList() {
+        List<Cheque> listCheque = chequeService.listAll();
+        ModelAndView mav = new ModelAndView("check-list");
+        mav.addObject("listCheque", listCheque);
+        return mav;
+    }
 	
 	 @GetMapping("/write-check")
 	    public String writeCheck(Map<String, Object> model) {
@@ -45,20 +53,14 @@ public class ChequeController {
 		 model.put("payeeList", payeeList);
 		 model.put("cheque", cheque);
 	     return "write-check";
-	  }
-	 
-	@RequestMapping("/cheques")
-	 public ModelAndView accountList() {
-	     List<Cheque> listCheque = chequeService.listAll();
-	     ModelAndView mav = new ModelAndView("history");
-	     mav.addObject("listCheque", listCheque);
-	     return mav;
 	 }
-	
-	@RequestMapping("/check")
-	public String printCheck(Cheque checkModel) {
-		return "check";
-	}
+	 
+	 @RequestMapping("/viewcheck")
+		public String deletePayee(Map<String, Object> model, @RequestParam long id) {
+		    Cheque cheque = chequeService.get(id);
+		    model.put("cheque", cheque);
+		    return "check";
+	 } 
 	
 	@RequestMapping(value = "/saveCheque", method = RequestMethod.POST)
 	public String saveAccount(@ModelAttribute("cheque") Cheque cheque) {
@@ -67,7 +69,7 @@ public class ChequeController {
         User user = userService.findByUsername(username);
         cheque.setUser(user);
 		chequeService.save(cheque);
-	    return "redirect:/check";
+	    return "redirect:/cheques";
 	 }
 		
 }

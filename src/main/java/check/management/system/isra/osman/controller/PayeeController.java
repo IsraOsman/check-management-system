@@ -42,9 +42,9 @@ public class PayeeController {
         return "redirect:/payee-list";
     }
 	
-	 @RequestMapping("/deletePayee")
-	    public String deletePayee(@RequestParam long id) {
-	        payeeService.delete(id);
-	        return "redirect:/payee-list";       
-	    }
+	@RequestMapping("/deletePayee")
+	public String deletePayee(@RequestParam long id) {
+	    payeeService.delete(id);
+	    return "redirect:/payee-list";       
+	}
 }

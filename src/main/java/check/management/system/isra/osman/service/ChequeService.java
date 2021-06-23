@@ -17,20 +17,20 @@ public class ChequeService {
 	
 	 public void save(Cheque cheque) {
 	        repo.save(cheque);
-	    }
+	 }
 	     
-	    public List<Cheque> listAll() {
+	 public List<Cheque> listAll() {
 	        return (List<Cheque>) repo.findAll();
 	    }
-	     
-	    public Cheque get(Long id) {
+	  
+	 public Cheque get(Long id) {
 	        return repo.findById(id).get();
-	    }
+	 }
 	     
-	    @Transactional
-	    public void delete(Long id) {
-	        repo.deleteById(id);
-	    }
+	 @Transactional
+	 public void delete(Long id) {
+	     repo.deleteById(id);
+	 }
 	
 	
 }

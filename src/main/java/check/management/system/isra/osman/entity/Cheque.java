@@ -1,9 +1,9 @@
 package check.management.system.isra.osman.entity;
 
-import java.util.Date;import javax.persistence.CascadeType;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -42,7 +42,7 @@ public class Cheque {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cheque(Long chequeNumber, Long amount, String memo, Date date, BankAccount account, User user) {
+	public Cheque(Long chequeNumber, Long amount, String memo, Payee payee, Date date, BankAccount account, User user) {
 		super();
 		this.chequeNumber = chequeNumber;
 		this.amount = amount;
@@ -50,6 +50,7 @@ public class Cheque {
 		this.date = date;
 		this.account = account;
 		this.user = user;
+		this.payee = payee;
 	}
 
 	public Long getChequeNumber() {
@@ -86,13 +87,6 @@ public class Cheque {
 		this.date = date;
 	}
 
-//	public Payee getPayee() {
-//		return payee;
-//	}
-//
-//	public void setPayee(Payee payee) {
-//		this.payee = payee;
-//	}
 
 	public BankAccount getAccount() {
 		return account;

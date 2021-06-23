@@ -39,7 +39,6 @@ public class BankAccountController {
 	@RequestMapping("/add-new-account")
     public String newAccountForm(Map<String, Object> model) {
         BankAccount account = new BankAccount();
-        
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = ((UserDetails)principal).getUsername();
         User user = userService.findByUsername(username);
@@ -60,4 +59,11 @@ public class BankAccountController {
 	        return "redirect:/accounts";       
 	    }
 	
+	 @RequestMapping("/edit")
+	    public ModelAndView editAccount(@RequestParam long id) {
+	        ModelAndView mav = new ModelAndView("edit-account");
+	        BankAccount account = accountService.get(id);
+	        mav.addObject("account", account);
+	        return mav;
+	    }
 }

@@ -11,7 +11,6 @@ import javax.persistence.Table;
 public class Payee {
 	
 	@Id
-	@GeneratedValue
 	private Long id;
 	private String payeeName;
 	
@@ -20,15 +19,11 @@ public class Payee {
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
 	public Payee(Long id, String payeeName) {
 		super();
 		this.id = id;
 		this.payeeName = payeeName;
 	}
-
-
 
 	public Long getId() {
 		return id;

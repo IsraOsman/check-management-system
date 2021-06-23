@@ -60,6 +60,10 @@
 				                    <td>Payee Name: </td>
 				                    <td><form:input path="payeeName" class="w-100" /></td>
 				                </tr>
+				                
+				                <tr>
+				                    <td><form:input type="hidden" path="id" class="w-100" /></td>
+				                </tr>
 				        
 				                <tr>
 				                    <td colspan="2"><input type="submit" value="Save" class="text-white rounded bg-secondary pl-4 pr-4"></td>
