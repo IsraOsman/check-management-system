@@ -1,6 +1,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> 
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,13 +28,14 @@
 	                  Menu
 	             </button>
 	             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-	             	<a class="dropdown-item font-weight-bold" href="${contextPath}/welcome">Dashbord</a>
+	             	<a class="dropdown-item font-weight-bold" href="${contextPath}/">Home</a>
+	                <a class="dropdown-item font-weight-bold" href="${contextPath}/welcome">Dashboard</a>
 	             </div>
 	         </div>
 	    </div>
 	    </div>
 	    <div class="logic-page">
-		    <div class="wrapper1">
+		    <div class="wrapper1 justify-content-between">
 			  	<div class="sidebar">
 			  		<ul>
 			  			<li><a href="${contextPath}/accounts"><i class="fas fa-file-invoice"></i>Bank Accounts</a></li>
@@ -41,48 +44,29 @@
 			  			<li><a href="#"><i class="fas fa-user-cog"></i>Account Setting</a></li>
 			  		</ul>
 			  	</div>
-			  	<div class="ml-5">
+			  	<div class="ml-5 w-75">
 				    <c:if test="${pageContext.request.userPrincipal.name != null}">
 				        <form id="logoutForm" method="POST" action="${contextPath}/logout">
 				            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 				        </form>
 				
-				        <h2>Download Or Print Check | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
+				        <h2>Add payee | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
 			        </c:if>
 			        
-				    <div class="container border mt-5 width-100">
-				        <div class="card mt-3 mb-3">
-					        <div class="card-body">
-					        	<div class="row">
-					        		<div class="col">Name & Adress</div>
-					        		<div class="col">Bank Name & Adress</div>
-					        		<div class="col">Check Number</div>
-					        	</div>
-					        	<div class="row">
-					        		<div class="col"></div>
-					        		<div class="col">Date</div>
-					        	</div>
-					        	<div class="row">
-					        		<div class="col">Pay to </div>
-					        		<div class="col">Amount in Number</div>
-					        	</div>
-					        	<div class="row">
-					        		<div class="col">Amount in Words</div>
-					        	</div>
-					        	<div class="row">
-					        		<div class="col">Memo </div>
-					        		<div class="col">Signature</div>
-					        	</div>
-					        	<div class="row">
-					        		<div class="col">Routing Number </div>
-					        		<div class="col">Account Number</div>
-					        		<div class="col">Check Number</div>
-					        		<div class="col"></div>
-					        	</div>
-				          </div>
-				    
-		        	   </div>
-		        	 </div>
+			        <div align="center" class="mt-5 w-75">
+				        <form:form class="w-100" action="savePayee" method="post" modelAttribute="payee">
+				            <table border="0" cellpadding="5" class="w-100">
+				                <tr>
+				                    <td>Payee Name: </td>
+				                    <td><form:input path="payeeName" class="w-100" /></td>
+				                </tr>
+				                         
+				            </table>
+				            <input type="submit" value="Save"  class="text-white rounded bg-secondary pl-4 pr-4 mt-4">
+				        </form:form>
+				        
+				    </div>
+		        </div>
 		  	
 		  </div>
 	  </div>

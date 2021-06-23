@@ -55,21 +55,29 @@
 			        </c:if>
 			                
 						              
- 			        <form:form action="saveCheque" method="post" modelAttribute="cheque"> 
+ 			        <form:form action="saveCheque" modelAttribute="cheque"> 
  			            <table border="0" cellpadding="5">
- 			                <tr>
- 			                    <td>Name: </td> 
-			                    <td><form:input path="memo" /></td>
- 			                </tr> 
- 			                <tr> 
-		                    <td>Payee: </td>
-			                    <td><form:select items="${payeeList}" path="payee"/></td> 
+ 			             	<tr> 
+		                        <td>Add Payee: </td>
+			                    <td> 
+				                    <form:select  path="payee">
+				                       <c:forEach items="${payeeList}" var="payee" >
+				                        	<form:option  value="${payee}"></form:option>
+				                        </c:forEach>
+				                    </form:select> 
+			                    </td> 
 			                </tr> 
- 			                <tr>
- 			                    <td>Bank Account: </td> 
- 			                    <td><form:select items="${accountList}" path="account" /></td>
- 			                </tr>   
- 			                
+			              	<tr> 
+		                        <td>Bank Account: </td>
+			                    <td> 
+				                    <form:select  path="account">
+				                       <c:forEach items="${accountList}" var="account" >
+				                        	<form:option  value="${account}"></form:option>
+				                        </c:forEach>
+				                    </form:select> 
+			                    </td> 
+			                </tr> 
+ 			               
  			                 <tr>
  			                    <td>Memo: </td> 
  			                    <td><form:input path="memo" /></td>
@@ -78,14 +86,17 @@
  			                    <td>Amount: </td> 
  			                    <td><form:input  path="amount" /></td>
  			                </tr>
-			                <tr>
-			                    <td colspan="2" class="center"><input type="submit" value="Save"></td>
-			                </tr>                    
+			                 <tr>
+ 			                    <td>Id</td> 
+ 			                    <td><form:input  path="chequeNumber" /></td>
+ 			                </tr>    
+ 			                
  			            </table> 
+ 			            <input type="submit" value="Save"  class="text-white rounded bg-secondary pl-4 pr-4 ">
  			        </form:form>
-			        
+  
 		        </div>
-		  	
+
 		  </div>
 	  </div>
 

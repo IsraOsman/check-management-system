@@ -61,12 +61,12 @@
 				                    <td><form:input path="name" class="w-75" /></td>
 				                </tr>
 				                <tr class="w-100">
-				                    <td class="d-inline">Bank: </td>
-				                    <td><form:input path="bank" class="w-75"/></td>
+				                    <td class="d-inline">Address: </td>
+				                    <td><form:input path="address" class="w-75"/></td>
 				                </tr>
 				                <tr class="w-100">
-				                    <td class="d-inline">Bank Address: </td>
-				                    <td><form:input path="address" class="w-75"/></td>
+				                    <td class="d-inline">Bank: </td>
+				                    <td><form:input path="bank" class="w-75"/></td>
 				                </tr>
 				                <tr class="w-100">
 				                    <td class="d-inline">Account Number: </td>
@@ -76,15 +76,14 @@
 				                    <td class="d-inline">Routing Number: </td>
 				                    <td><form:input path="routingNumber" class="w-75"/></td>
 				                </tr>  
-				                
-				              
+				          
 				              	<tr>
 				                    <td><form:input  type="hidden" path="user.id"/></td>
 				                </tr>
-				                <tr>
-				                    <td><input type="submit" value="Save" class="border pl-3 pr-3 pt-1 pb-1"></td>
-				                </tr>                    
+				                                    
 				            </table>
+				            
+				            <input type="submit" value="Save"  class="text-white rounded bg-secondary pl-4 pr-4 ">
 				        </form:form>
 				        
 				    </div>

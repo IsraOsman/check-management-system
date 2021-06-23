@@ -62,7 +62,7 @@
 				                </tr>
 				        
 				                <tr>
-				                    <td colspan="2"><input type="submit" value="Save"></td>
+				                    <td colspan="2"><input type="submit" value="Save" class="text-white rounded bg-secondary pl-4 pr-4"></td>
 				                </tr>                    
 				            </table>
 				        </form:form>
