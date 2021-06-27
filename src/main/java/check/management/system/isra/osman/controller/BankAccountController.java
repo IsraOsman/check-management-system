@@ -19,6 +19,7 @@ import check.management.system.isra.osman.service.BankAccountService;
 import check.management.system.isra.osman.service.UserService;
 import check.management.system.isra.osman.service.UserServiceImpl;
 
+//controller class for my Bankaaccount handling methods 
 @Controller
 public class BankAccountController {
 
@@ -28,6 +29,8 @@ public class BankAccountController {
 	@Autowired 
 	UserServiceImpl userService;
 	
+	//this annotation map the incoming url /accounts request to this method 
+	//and the method use the accountService to listAll accounts in the database and return add-aacount jsp page 
 	@RequestMapping("/accounts")
     public ModelAndView accountList() {
         List<BankAccount> listAccount = accountService.listAll();
@@ -36,6 +39,8 @@ public class BankAccountController {
         return mav;
     }
 	
+	//this annotation map the incoming url /accounts request to this method 
+	//and this method call the put method from the account service class and save the account to the database 
 	@RequestMapping("/add-new-account")
     public String newAccountForm(Map<String, Object> model) {
         BankAccount account = new BankAccount();
@@ -47,23 +52,29 @@ public class BankAccountController {
         return "new-account";
     }
 	
+	//presist new account to the database 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveAccount(@ModelAttribute("account") BankAccount account) {
         accountService.save(account);
         return "redirect:/accounts";
     }
 	
+	//delete an exisitng account from the database 
+
 	 @RequestMapping("/delete")
 	    public String deleteAccount(@RequestParam long id) {
 	        accountService.delete(id);
 	        return "redirect:/accounts";       
-	    }
+	  }
 	
+	 
+	 //update an existing account infos
 	 @RequestMapping("/edit")
 	    public ModelAndView editAccount(@RequestParam long id) {
 	        ModelAndView mav = new ModelAndView("edit-account");
 	        BankAccount account = accountService.get(id);
 	        mav.addObject("account", account);
 	        return mav;
-	    }
+	  }
+	 
 }

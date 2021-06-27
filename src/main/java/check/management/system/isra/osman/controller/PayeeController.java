@@ -14,12 +14,14 @@ import org.springframework.web.servlet.ModelAndView;
 import check.management.system.isra.osman.entity.Payee;
 import check.management.system.isra.osman.service.PayeeService;
 
+//controller class that map payees related requests to the related payees methods 
 @Controller
 public class PayeeController {
 	
 	@Autowired
 	PayeeService payeeService;
 	
+	//this method return the list of payees in a jsp page
 	@RequestMapping("/payee-list")
     public ModelAndView payeeList() {
         List<Payee> listPayee = payeeService.listAll();

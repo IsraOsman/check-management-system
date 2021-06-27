@@ -87,8 +87,8 @@
  			                    <td><form:input  path="amount" /></td>
  			                </tr>
 			                 <tr>
- 			                    <td>Id</td> 
- 			                    <td><form:input  path="chequeNumber" /></td>
+ 			                    
+ 			                    <td><form:input type="hidden" path="chequeNumber" /></td>
  			                </tr>    
  			                
  			            </table> 

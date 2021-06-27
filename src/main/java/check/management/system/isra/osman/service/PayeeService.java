@@ -27,7 +27,7 @@ public class PayeeService {
 	        return repo.findById(id).get();
 	 }
 	     
-	    @Transactional
+	 @Transactional
 	 public void delete(Long id) {
 	     repo.deleteById(id);
 	 }

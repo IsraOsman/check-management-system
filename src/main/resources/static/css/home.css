@@ -17,12 +17,22 @@ body {
  width:50%;
  }
 
+@font-face {
+  font-family: myfont;
+  src: url(./micrenc.ttf);
+  font-weight: bold;
+  
+}
+
+.accNum{
+	font-family: myfont;	
+	font-size: 20px;
+}
 
 #btnColor{
 	background-color: rgba(101, 44, 175, 0.911);
 	padding: .5rem 1.5rem;
 }
-
 
 .home-page-img{
 	width: 90%;

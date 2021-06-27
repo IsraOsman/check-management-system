@@ -11,6 +11,7 @@ import javax.persistence.Table;
 public class Payee {
 	
 	@Id
+	@GeneratedValue
 	private Long id;
 	private String payeeName;
 	
@@ -19,9 +20,8 @@ public class Payee {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Payee(Long id, String payeeName) {
+	public Payee(String payeeName) {
 		super();
-		this.id = id;
 		this.payeeName = payeeName;
 	}
 
@@ -45,5 +45,19 @@ public class Payee {
 	public String toString() {
 		return "Payee [id=" + id + ", payeeName=" + payeeName + "]";
 	}
+
+	//overiding equals method to compare variables of the objects for testing purposes 
+	@Override
+	public boolean equals(Object obj) {
+		Payee payee = (Payee)obj;
+		
+		if(obj != null && payee.getId().equals(this.id) && payee.getPayeeName().equals(this.payeeName)){
+			return true;
+		}
+		
+		return false;
+		
+	}
+	
 
 }

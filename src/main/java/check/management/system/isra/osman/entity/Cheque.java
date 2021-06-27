@@ -4,24 +4,30 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="cheque")
 public class Cheque {
 
 	@Id
+	@GeneratedValue
 	@Column(name="cheque_number")
 	private Long chequeNumber;
 	private Long amount;
 	private String memo;
 	
 	@CreationTimestamp
+	@Temporal(TemporalType.DATE)
 	private Date date;
 	
 	
@@ -42,9 +48,8 @@ public class Cheque {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cheque(Long chequeNumber, Long amount, String memo, Payee payee, Date date, BankAccount account, User user) {
+	public Cheque(Long amount, String memo, Payee payee, Date date, BankAccount account, User user) {
 		super();
-		this.chequeNumber = chequeNumber;
 		this.amount = amount;
 		this.memo = memo;
 		this.date = date;
@@ -111,8 +116,6 @@ public class Cheque {
 	public void setPayee(Payee payee) {
 		this.payee = payee;
 	}
-	
-	
 	
 
 }

@@ -1,4 +1,4 @@
-package dev.springboot.cms;
+package check.management.system.isra.osman;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

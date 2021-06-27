@@ -24,6 +24,7 @@ import check.management.system.isra.osman.service.ChequeService;
 import check.management.system.isra.osman.service.PayeeService;
 import check.management.system.isra.osman.service.UserService;
 
+//controller class to handel incoming cheque related requests 
 @Controller
 public class ChequeController {
 
@@ -36,6 +37,7 @@ public class ChequeController {
 	
 	@Autowired UserService userService;
 	
+	//the method gets all list of cheques from the database and return the check-list jsp page 
 	@RequestMapping("/cheques")
     public ModelAndView chequeList() {
         List<Cheque> listCheque = chequeService.listAll();
@@ -44,6 +46,8 @@ public class ChequeController {
         return mav;
     }
 	
+	
+	//the method add list off payees and accounts to be available to the write check jsp page 
 	 @GetMapping("/write-check")
 	    public String writeCheck(Map<String, Object> model) {
 		 Cheque cheque = new Cheque(); 
@@ -62,6 +66,8 @@ public class ChequeController {
 		    return "check";
 	 } 
 	
+	 
+	 //to presist new new cheques to the database 
 	@RequestMapping(value = "/saveCheque", method = RequestMethod.POST)
 	public String saveAccount(@ModelAttribute("cheque") Cheque cheque) {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
