@@ -25,7 +25,7 @@ User Stories:
 6.As a user I want write a check and downloaded 
 
 
-challenges 
+Challenges:
 
 1/ Connecting frontend framwork to the localhost that my spring app running on 
 
